@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keanu Reeve's Career</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    /* .embed-container {height: 50%; max-width: 100%;}
+    .embed-container iframe, .embed-container object, .embed-container iframe{position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+    small{position: absolute; z-index: 40; bottom: 0; margin-bottom: -15px;} */
+    html,
+    body,
+    #myChart {
+        height: 750px;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+    }
+    .embed-container {
+      display: flex;
+      align-items: stretch;
+    }
+  </style>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+</head>
+<body>
+  <div class="embed-container">
+    <div style='padding: .5em; margin: 0;'>
+      <iframe width="940" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Keanu Reeves Film Locations" src="//ucsdonline.maps.arcgis.com/apps/Embed/index.html?webmap=3929deb24c194436b3c6091e848773a6&extent=-162.9053,-54.7493,96.7236,64.5678&zoom=true&previewImage=false&scale=true&disable_scroll=true&theme=light"></iframe>
+      <p>
+        It turns out, Keanu Reeves really doesn't like to shoot movies outside of populated areas (Or maybe just the movie industry as a whole). Lots of his films were filmed in either LA (film capital of the US!) or NY, unsurprisingly. You would think that more exotic films would have more exotic locations, but I guess they all manage to find an exotic-looking place close to home.
+      </p>
+    </div>
+    <div style='padding: .5em; margin: 0; height: 100%; flex-grow: 1; margin-top: 41px;'>
+      <img src='topgrossing.png' />
+      <p>
+        Unfortunately for the actor, since The Matrix, his biggest hit by far has been Toy Story 4, where he plays Duke Caboom, a far less than main character.
+      </p>
+    </div>
+  </div>
+  <div id="myChart">
+  </div>
+  <div style='padding: .5em; margin: 0;'>
+    The person Keanu has costared with the most is Laurence Fishburne, unsurprisingly, considering the duo have been in both The Matrix and John Wick together. In addition, Sandra Bullock also appears in a fair share of Reeves' films, hence probably why there was speculation a long time back about the two dating.
+  </div>
+  <script>
+    let chartData = [{
+        text: 'Keanu Reeves',
+        values: [0, 16, 10, 8, 8, 5],
+        style: {
+          band: {
+            alpha: 1,
+            // backgroundColor: '#000'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+      {
+        text: 'Laurence Fishburne',
+        values: [16, 0, 0, 0],
+        style: {
+          band: {
+            aplpha: 1,
+            // backgroundColor: '#f26223'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+      {
+        text: 'Carrie-Anne Moss',
+        values: [10, 0, 0, 0],
+        style: {
+          band: {
+            aplpha: 1,
+            // backgroundColor: '#f26223'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+      {
+        text: 'Alex Winter',
+        values: [8, 0, 0, 0],
+        style: {
+          band: {
+            alpha: 1,
+            // backgroundColor: '#957244'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+      {
+        text: 'Sandra Bullock',
+        values: [8, 0, 0, 0],
+        style: {
+          band: {
+            alpha: 1,
+            // backgroundColor: '#ffdd89'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+      {
+        text: 'Ana de Armas',
+        values: [5, 0, 0, 0],
+        style: {
+          band: {
+            alpha: 1,
+            // backgroundColor: '#957244'
+          },
+          label: {
+            bold: true,
+            fontFamily: 'arial',
+            fontSize: '14px'
+          }
+        }
+      },
+    ]
+
+    let chartConfig = {
+      type: 'chord',
+      backgroundColor: '#FFFFFF',
+      title: {
+        text: 'Costars in Movies',
+        backgroundColor: 'none',
+        fontColor: '#333',
+        fontFamily: 'arial',
+        textAlign: 'left'
+      },
+      options: {
+        anglePadding: 5,
+        bandSpace: 2,
+        radius: 250
+      },
+      plotarea: {
+        margin: '25px 40px 15px 40px'
+      },
+      series: chartData
+    };
+
+    zingchart.render({
+      id: 'myChart',
+      data: chartConfig,
+      height: '100%',
+      width: '100%'
+    });
+  </script>
+</body>
+</html>
